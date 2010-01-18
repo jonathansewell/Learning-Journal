@@ -1,0 +1,44 @@
+/*
+Theme Name: Jonathan's Basic Theme
+Theme URI: http://jonathansewell.co.uk/
+Description: A basic theme.
+Version: 1
+Author: Jonathan Sewell
+Author URI: http://jonathansewell.co.uk/
+Tags: basic
+*/
+body
+{
+	width:1000px;
+}
+h1, h2, h3, h4, h5, h6 { 
+	margin: 0 0 5px 0;
+}
+
+/*Header*/
+div#header
+{
+	margin: 0 0 20px 0;
+}
+	div#header h1
+	{
+		margin:5px 0;
+	}
+
+/*Content*/
+#page #content
+{
+	float:left;
+	width:800px;
+}
+/*Sidebar*/
+#page #sidebar
+{
+	float:right;
+	width:200px;
+}
+/*Footer*/
+#page #footer
+{
+	clear:both;
+}
