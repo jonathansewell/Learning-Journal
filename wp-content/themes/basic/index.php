@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-	<div id="content" class="narrowcolumn" role="main">
+	<div id="content" class="narrowcolumn">
 
 	<?php if (have_posts()) : ?>
 
@@ -43,3 +43,10 @@ get_header(); ?>
 <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
+
+<script type="text/javascript">
+     SyntaxHighlighter.all();
+</script>
+
+</body>
+</html>

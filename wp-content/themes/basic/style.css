@@ -9,7 +9,8 @@ Tags: basic
 */
 body
 {
-	width:1000px;
+	width:auto;
+	padding:10px;
 }
 h1, h2, h3, h4, h5, h6 { 
 	margin: 0 0 5px 0;
@@ -26,19 +27,38 @@ div#header
 	}
 
 /*Content*/
+#page
+{
+	margin:0 auto;
+	width:980px;
+}
 #page #content
 {
 	float:left;
-	width:800px;
+	width:780px;
 }
 /*Sidebar*/
 #page #sidebar
 {
 	float:right;
-	width:200px;
+	padding:0 0 0 10px;
+	width:190px;
 }
+	#page #sidebar ul li
+	{
+		list-style:none;
+		margin:0;
+	}
+	#page #sidebar ul
+	{
+		margin:0;
+	}
 /*Footer*/
 #page #footer
 {
 	clear:both;
+}
+/*Override ie6 base styles to make syntax highlighter work*/
+code {
+	display:inline;
 }
