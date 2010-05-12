@@ -5,15 +5,9 @@
  */
 ?>
 	<div id="sidebar">
-		<ul>
-		
-			<li>
-				<?php get_search_form(); ?>
-			</li>
-		
-			<?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
-
-			<?php wp_list_categories('show_count=1&title_li=<h2>Categories</h2>'); ?>
-		</ul>
+        <h2>About Me</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum feugiat ligula, sed auctor dolor mollis at. Nam enim massa, rhoncus eu viverra in, scelerisque in sapien. Praesent risus metus, tempus non pulvinar sed, hendrerit et urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse eleifend adipiscing turpis, vel elementum nunc accumsan sit amet.
+        </p>
 	</div>
 
