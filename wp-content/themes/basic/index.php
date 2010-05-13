@@ -6,38 +6,36 @@
 
 get_header(); ?>
 
-<div id="journal-posts">
-    <h2>Learning Journal</h2>
+<div id="column-wrapper">
+    <div id="column-593">
+        <h2>Learning Journal</h2>
+        <?php if (have_posts()) : ?>
 
-	<?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
 
-		<?php while (have_posts()) : the_post(); ?>
-
-			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-				<h3>
+                <h3 class="post-title">
                        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                            <span class="post-date">
+                            <span>
                                 <?php the_time('F jS Y') ?>
                             </span>
                             // <?php the_title(); ?>
                        </a>
                 </h3>
-			</div>
 
-		<?php endwhile; ?>
+            <?php endwhile; ?>
 
-	<?php else : ?>
+        <?php else : ?>
 
-		<h2 class="center">Not Found</h2>
-		<p class="center">Sorry, but you are looking for something that isn't here.</p>
+            <p class="center">Um, yes, this is embarrassing. Something has gone wrong! </p>
 
-	<?php endif; ?>
+        <?php endif; ?>
 
-	</div>
+    </div>
 
-<?php get_sidebar(); ?>
+    <?php get_sidebar(); ?>
+    </div>
 
-<?php get_footer(); ?>
+</div>
 
 <script type="text/javascript">
      SyntaxHighlighter.all();
