@@ -33,10 +33,9 @@
 <body <?php body_class(); ?>>
 <div id="page">
 
-
-<div id="header">
-	<div>
-        <h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-	    <p><?php bloginfo('description'); ?></p>
-    </div>
-</div>
+<div id="column-wrapper">
+    <div id="column-593">
+		<div id="header">
+			<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+			<p><?php bloginfo('description'); ?></p>
+		</div>

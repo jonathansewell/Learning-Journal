@@ -6,9 +6,6 @@
 
 get_header(); ?>
 
-<div id="column-wrapper">
-    <div id="column-593">
-        <h2>Learning Journal</h2>
         <?php if (have_posts()) : ?>
 
             <?php while (have_posts()) : the_post(); ?>
