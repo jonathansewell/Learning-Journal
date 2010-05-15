@@ -6,18 +6,24 @@
 
 get_header(); ?>
 
+<hr />
         <?php if (have_posts()) : ?>
 
             <?php while (have_posts()) : the_post(); ?>
 
-                <h3 class="post-title">
-                       <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                            <span>
-                                <?php the_time('F jS Y') ?>
-                            </span>
-                            // <?php the_title(); ?>
-                       </a>
-                </h3>
+                <div class="post-title">
+						<h3>
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+								<?php the_title(); ?>
+                            </a>
+						</h3>
+					   
+					   <p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum feugiat ligula, sed auctor dolor mollis at.
+							<?php the_time('F jS Y') ?>
+					   </p>
+					   
+                </div>
 
             <?php endwhile; ?>
 

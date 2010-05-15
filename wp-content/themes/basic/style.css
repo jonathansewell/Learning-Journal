@@ -18,49 +18,61 @@ body
 	width:auto;
 	padding:0;
     margin:0;
-    background: #fff url(images/lion-left.jpg) no-repeat fixed left bottom;
+    /*background: #fff url(images/lion-left.jpg) no-repeat fixed left bottom;*/
     font-size:16px;
+	color:#707070;
 }
 h1, h2, h3, h4, h5, h6 { 
 	margin: 0 0 5px 0;
     font-family:Trebuchet, Tahoma, Arial, sans-serif;
 	color:#80c8e5;
 }
-div#header h1 a:visited,
-div#header h1 a:focus,
-div#header h1 a:hover,
-h1 a {
-	color : #80c8e5;
-}
-h2{
-    font-size:37.5px;
-}
-
+	h1 a:visited, h1 a:focus, h1 a:hover,h1 a {
+		color : #80c8e5;
+	}
+	h2 a:visited, h2 a:focus, h2 a:hover, h2 a {
+		color : #505050;
+	}
+	h2{
+	    font-size:37.5px;
+	}
+	h3 a:visited, h3 a:focus, h3 a:hover, h3 a {
+		color : #505050;
+	}
 a {
     text-decoration : none;
+	color:#707070;
 }
-
 a:focus,
 a:hover {
     text-decoration : underline;
+}
+hr{
+	background-color:#CCCCCC;
+	border:0 none;
+	color:#CCCCCC;
+	height:1px;
+	margin:0 20px 40px 0;
 }
 
 /*Header*/
 div#header
 {
+	margin:0 0 15px;
 }
 	div#header h1
 	{
 	}
 	div#header p
 	{
+		margin:0;
 	}
 
 
 /*Content*/
 #column-wrapper{
     width:960px;
-    margin:40px auto;
+    margin:25px auto;
     padding:0 10px;
 }
 #column-593{
@@ -73,12 +85,7 @@ div#header
     .post-title{
         margin:10px 0;
     }
-        .post-title a{
-            color:#464646;
-        }
-        .post-title a span{
-            color:#cc0000;
-        }
+
 #column-367{
     width:347px;
     float:left;
