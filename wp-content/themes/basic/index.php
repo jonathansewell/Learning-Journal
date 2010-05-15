@@ -7,9 +7,10 @@
 get_header(); ?>
 
 <hr />
-        <?php if (have_posts()) : ?>
 
-            <?php while (have_posts()) : the_post(); ?>
+        <?php if (have_posts()) : ?>
+            <?php $loop_count = 0; ?>
+            <?php while (have_posts() && $loop_count < 3) : the_post(); ?>
 
                 <div class="post-title">
 						<h3>
@@ -17,14 +18,10 @@ get_header(); ?>
 								<?php the_title(); ?>
                             </a>
 						</h3>
-					   
-					   <p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum feugiat ligula, sed auctor dolor mollis at.
-							<?php the_time('F jS Y') ?>
-					   </p>
+					    <?php the_excerpt(); ?>
 					   
                 </div>
-
+            <?php $loop_count = $loop_count + 1; ?>
             <?php endwhile; ?>
 
         <?php else : ?>
@@ -32,12 +29,12 @@ get_header(); ?>
             <p class="center">Um, yes, this is embarrassing. Something has gone wrong! </p>
 
         <?php endif; ?>
-
     </div>
 
     <?php get_sidebar(); ?>
     </div>
 
+<div id="lizard"></div>
 </div>
 
 <script type="text/javascript">

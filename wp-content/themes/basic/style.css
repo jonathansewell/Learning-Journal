@@ -18,7 +18,7 @@ body
 	width:auto;
 	padding:0;
     margin:0;
-    /*background: #fff url(images/lion-left.jpg) no-repeat fixed left bottom;*/
+    background: #fff url(images/lion-left-10.jpg) no-repeat fixed left bottom;
     font-size:16px;
 	color:#707070;
 }
@@ -26,6 +26,9 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 5px 0;
     font-family:Trebuchet, Tahoma, Arial, sans-serif;
 	color:#80c8e5;
+}
+h3{
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 	h1 a:visited, h1 a:focus, h1 a:hover,h1 a {
 		color : #80c8e5;
@@ -105,4 +108,14 @@ div#header
 /*Override ie6 base styles to make syntax highlighter work*/
 code {
 	display:inline;
+}
+#lizard
+{
+    background:url("images/lizard.jpg") no-repeat scroll left top;
+    height:120px;
+    left:83%;
+    position:absolute;
+    top:12%;
+    width:200px;
+    z-index:-1;
 }
