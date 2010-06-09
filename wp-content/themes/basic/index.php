@@ -10,7 +10,7 @@ get_header(); ?>
 
         <?php if (have_posts()) : ?>
             <?php $loop_count = 0; ?>
-            <?php while (have_posts() && $loop_count < 3) : the_post(); ?>
+            <?php while (have_posts() && $loop_count < 10) : the_post(); ?>
 
                 <div class="post-title">
 						<h3>
@@ -26,7 +26,7 @@ get_header(); ?>
 
         <?php else : ?>
 
-            <p class="center">Um, yes, this is embarrassing. Something has gone wrong! </p>
+            <p class="center">Yes, this is embarrassing. Something has gone wrong. </p>
 
         <?php endif; ?>
     </div>
@@ -34,8 +34,8 @@ get_header(); ?>
     <?php get_sidebar(); ?>
     </div>
 
-<div id="lizard"></div>
-</div>
+<!-- <div id="lizard"></div>
+ </div>-->
 
 <script type="text/javascript">
      SyntaxHighlighter.all();
