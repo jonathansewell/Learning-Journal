@@ -18,7 +18,7 @@ body
 	width:auto;
 	padding:0;
     margin:0;
-    background: #fff url(images/lion-left-10.jpg) no-repeat fixed left bottom;
+    background: #fff; /* url(images/lion-left-10.jpg) no-repeat fixed left bottom;*/
     font-size:16px;
 	color:#707070;
 }

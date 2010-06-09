@@ -4,6 +4,8 @@
  * @subpackage Default_Theme
  */
 
+ 
+
 automatic_feed_links();
 
 if ( function_exists('register_sidebar') ) {
@@ -155,6 +157,9 @@ function kubrick_add_theme_page() {
 	}
 	add_theme_page(__('Custom Header'), __('Custom Header'), 'edit_themes', basename(__FILE__), 'kubrick_theme_page');
 }
+
+# Remove WordPress' canonical links
+remove_filter('template_redirect', 'redirect_canonical');
 
 function kubrick_theme_page_head() {
 ?>
