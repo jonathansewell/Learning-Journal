@@ -14,14 +14,14 @@
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 	<!-- Universal IE6 style sheet (http://code.google.com/p/universal-ie6-css/)-->
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/ie6.0.3.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/ie6.0.3.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/main.css" type="text/css" media="screen" />
 
 	<!-- Syntax highlighter -->
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/scripts/shCore.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/scripts/shBrushCSharp.js"></script>
-	<link href="<?php bloginfo('stylesheet_directory'); ?>/styles/shCore.css" rel="stylesheet" type="text/css" />
-	<link href="<?php bloginfo('stylesheet_directory'); ?>/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/shCore.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/scripts/shBrushCSharp.js"></script>
+	<link href="<?php bloginfo('template_directory'); ?>/styles/shCore.css" rel="stylesheet" type="text/css" />
+	<link href="<?php bloginfo('template_directory'); ?>/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
 	 
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -30,12 +30,3 @@
 
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
-<div id="page">
-
-<div id="column-wrapper">
-    <div id="column-593">
-		<div id="header">
-			<h1><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-			<p><?php bloginfo('description'); ?></p>
-		</div>
