@@ -13,10 +13,10 @@ Template Name: Links
 
 <div id="content" class="widecolumn">
 
-<h2>Links:</h2>
-<ul>
-<?php wp_list_bookmarks(); ?>
-</ul>
+    <h2>Links:</h2>
+    <ul>
+    <?php wp_list_bookmarks(); ?>
+    </ul>
 
 </div>
 
