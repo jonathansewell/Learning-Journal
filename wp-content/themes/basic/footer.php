@@ -5,7 +5,10 @@
  */
 ?>
 
-</div>
 
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+</script>
 
-<?php wp_footer(); ?>
+</body>
+</html>

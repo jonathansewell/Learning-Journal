@@ -19,16 +19,17 @@ body {
     color: #000;
     width: 100%;
     font-family: Tahoma, Verdana, Geneva;
+    font-size:13px;
 }
 
 h1 {
-    font-size: 65px;
-    margin-top:30px;
-    margin-bottom:-10px;
+    font-size: 55px;
+    margin-top:20px;
+    margin-bottom:-2px;
 }
 h2{
-    font-size:26px;
-    margin:0 0 8px 0;
+    font-size:21px;
+    margin:0 0 5px 0;
 }
 h1, h2, h3, h4, h5, h6 {
     margin-left: 20px;
@@ -45,8 +46,8 @@ hr{
 }
 h2#about-me
 {
-    font-size:32px;
-    margin-top:53px;
+    font-size:25px;
+    margin-top:40px;
 }
 p {
     margin: 0 20px 20px;
@@ -55,7 +56,8 @@ p {
 p#tag-line {
     font-family: "Century Gothic", AppleGothic, sans-serif;
     color: #80c8e5;
-    font-size: 38px;
+    font-size: 34px;
+    margin-bottom:50px;
 }
 
 a {
@@ -77,6 +79,10 @@ a:focus, a:hover {
 
 #primary-content {
     width: 62%;
+    float: left;
+}
+.single #primary-content {
+    width: 89%;
     float: left;
 }
 
