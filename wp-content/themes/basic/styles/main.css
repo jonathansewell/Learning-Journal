@@ -28,7 +28,7 @@ h1 {
     margin-bottom:-2px;
 }
 h2{
-    font-size:21px;
+    font-size:26px;
     margin:0 0 5px 0;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -51,6 +51,7 @@ h2#about-me
 }
 p {
     margin: 0 20px 20px;
+    font-size:14px;
 }
 
 p#tag-line {
@@ -74,7 +75,9 @@ a:focus, a:hover {
 }
 
 #wrapper {
-    max-width: 1400px;
+	margin:0 auto;
+	max-width:1280px;
+	width:89%;
 }
 
 #primary-content {
