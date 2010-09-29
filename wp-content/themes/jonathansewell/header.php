@@ -20,6 +20,7 @@
 	<!-- Syntax highlighter -->
 	<link href="<?php bloginfo('template_directory'); ?>/syntax-highlighter/styles/shCore.css" rel="stylesheet" type="text/css"/>
 	<link href="<?php bloginfo('template_directory'); ?>/syntax-highlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+	<link href="<?php bloginfo('template_directory'); ?>/syntax-highlighter/styles/shThemeRDark.css" rel="stylesheet" type="text/css"/>
 
 <?php if (is_singular()) wp_enqueue_script('comment-reply'); ?>
 

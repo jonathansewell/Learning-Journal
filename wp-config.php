@@ -19,10 +19,10 @@
 define('DB_NAME', 'jonathansewell.co.uk');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'jsbloguser');
 
 /** MySQL database password */
-define('DB_PASSWORD', '!4u2Kn0w');
+define('DB_PASSWORD', 'dYQcsDQyVVBzMUqW');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
