@@ -24,6 +24,7 @@
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 <?php global $lw_header_content, $lw_wp3_menus; echo "\n".$lw_header_content."\n"; ?>
+<script type="text/javascript"> var disqus_developer = 1; </script> 
 </head>
 
 <body>
