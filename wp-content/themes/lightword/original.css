@@ -9,7 +9,11 @@
 ul#front_menu{width:548px;}
 .expand{width:768px !important;}
 .hentry{width:548px;overflow:hidden;}
-.cat_tags{background:#FFF url(images/tags_category.png) no-repeat;width:540px;}
+.cat_tags{
+	border:1px solid #EEEEEE;
+	background-color:#FAFAFA;
+	margin-bottom:20px;
+}
 .cat_tags_close{background:#FFF url(images/tags_category.png)  0 -81px no-repeat;width:548px;}
 .cat_tags .category{width:400px;}
-.cat_tags .continue{padding-right:10px;}
+.cat_tags .continue{padding-right:10px;text-align:right;}

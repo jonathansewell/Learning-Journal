@@ -1,219 +1,76 @@
 /**
- * $Id: validate.js 758 2008-03-30 13:53:29Z spocke $
+ * $Id: mctabs.js 758 2008-03-30 13:53:29Z spocke $
  *
- * Various form validation methods.
+ * Moxiecode DHTML Tabs script.
  *
  * @author Moxiecode
  * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
-/**
-	// String validation:
+function MCTabs() {
+	this.settings = [];
+};
 
-	if (!Validator.isEmail('myemail'))
-		alert('Invalid email.');
+MCTabs.prototype.init = function(settings) {
+	this.settings = settings;
+};
 
-	// Form validation:
+MCTabs.prototype.getParam = function(name, default_value) {
+	var value = null;
 
-	var f = document.forms['myform'];
+	value = (typeof(this.settings[name]) == "undefined") ? default_value : this.settings[name];
 
-	if (!Validator.isEmail(f.myemail))
-		alert('Invalid email.');
-*/
+	// Fix bool values
+	if (value == "true" || value == "false")
+		return (value == "true");
 
-var Validator = {
-	isEmail : function(s) {
-		return this.test(s, '^[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+@[-!#$%&\'*+\\/0-9=?A-Z^_`a-z{|}~]+\.[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+$');
-	},
+	return value;
+};
 
-	isAbsUrl : function(s) {
-		return this.test(s, '^(news|telnet|nttp|file|http|ftp|https)://[-A-Za-z0-9\\.]+\\/?.*$');
-	},
+MCTabs.prototype.displayTab = function(tab_id, panel_id) {
+	var panelElm, panelContainerElm, tabElm, tabContainerElm, selectionClass, nodes, i;
 
-	isSize : function(s) {
-		return this.test(s, '^[0-9]+(%|in|cm|mm|em|ex|pt|pc|px)?$');
-	},
+	panelElm= document.getElementById(panel_id);
+	panelContainerElm = panelElm ? panelElm.parentNode : null;
+	tabElm = document.getElementById(tab_id);
+	tabContainerElm = tabElm ? tabElm.parentNode : null;
+	selectionClass = this.getParam('selection_class', 'current');
 
-	isId : function(s) {
-		return this.test(s, '^[A-Za-z_]([A-Za-z0-9_])*$');
-	},
+	if (tabElm && tabContainerElm) {
+		nodes = tabContainerElm.childNodes;
 
-	isEmpty : function(s) {
-		var nl, i;
-
-		if (s.nodeName == 'SELECT' && s.selectedIndex < 1)
-			return true;
-
-		if (s.type == 'checkbox' && !s.checked)
-			return true;
-
-		if (s.type == 'radio') {
-			for (i=0, nl = s.form.elements; i<nl.length; i++) {
-				if (nl[i].type == "radio" && nl[i].name == s.name && nl[i].checked)
-					return false;
-			}
-
-			return true;
+		// Hide all other tabs
+		for (i = 0; i < nodes.length; i++) {
+			if (nodes[i].nodeName == "LI")
+				nodes[i].className = '';
 		}
 
-		return new RegExp('^\\s*$').test(s.nodeType == 1 ? s.value : s);
-	},
+		// Show selected tab
+		tabElm.className = 'current';
+	}
 
-	isNumber : function(s, d) {
-		return !isNaN(s.nodeType == 1 ? s.value : s) && (!d || !this.test(s, '^-?[0-9]*\\.[0-9]*$'));
-	},
+	if (panelElm && panelContainerElm) {
+		nodes = panelContainerElm.childNodes;
 
-	test : function(s, p) {
-		s = s.nodeType == 1 ? s.value : s;
+		// Hide all other panels
+		for (i = 0; i < nodes.length; i++) {
+			if (nodes[i].nodeName == "DIV")
+				nodes[i].className = 'panel';
+		}
 
-		return s == '' || new RegExp(p).test(s);
+		// Show selected panel
+		panelElm.className = 'current';
 	}
 };
 
-var AutoValidator = {
-	settings : {
-		id_cls : 'id',
-		int_cls : 'int',
-		url_cls : 'url',
-		number_cls : 'number',
-		email_cls : 'email',
-		size_cls : 'size',
-		required_cls : 'required',
-		invalid_cls : 'invalid',
-		min_cls : 'min',
-		max_cls : 'max'
-	},
+MCTabs.prototype.getAnchor = function() {
+	var pos, url = document.location.href;
 
-	init : function(s) {
-		var n;
+	if ((pos = url.lastIndexOf('#')) != -1)
+		return url.substring(pos + 1);
 
-		for (n in s)
-			this.settings[n] = s[n];
-	},
-
-	validate : function(f) {
-		var i, nl, s = this.settings, c = 0;
-
-		nl = this.tags(f, 'label');
-		for (i=0; i<nl.length; i++)
-			this.removeClass(nl[i], s.invalid_cls);
-
-		c += this.validateElms(f, 'input');
-		c += this.validateElms(f, 'select');
-		c += this.validateElms(f, 'textarea');
-
-		return c == 3;
-	},
-
-	invalidate : function(n) {
-		this.mark(n.form, n);
-	},
-
-	reset : function(e) {
-		var t = ['label', 'input', 'select', 'textarea'];
-		var i, j, nl, s = this.settings;
-
-		if (e == null)
-			return;
-
-		for (i=0; i<t.length; i++) {
-			nl = this.tags(e.form ? e.form : e, t[i]);
-			for (j=0; j<nl.length; j++)
-				this.removeClass(nl[j], s.invalid_cls);
-		}
-	},
-
-	validateElms : function(f, e) {
-		var nl, i, n, s = this.settings, st = true, va = Validator, v;
-
-		nl = this.tags(f, e);
-		for (i=0; i<nl.length; i++) {
-			n = nl[i];
-
-			this.removeClass(n, s.invalid_cls);
-
-			if (this.hasClass(n, s.required_cls) && va.isEmpty(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.number_cls) && !va.isNumber(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.int_cls) && !va.isNumber(n, true))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.url_cls) && !va.isAbsUrl(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.email_cls) && !va.isEmail(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.size_cls) && !va.isSize(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.id_cls) && !va.isId(n))
-				st = this.mark(f, n);
-
-			if (this.hasClass(n, s.min_cls, true)) {
-				v = this.getNum(n, s.min_cls);
-
-				if (isNaN(v) || parseInt(n.value) < parseInt(v))
-					st = this.mark(f, n);
-			}
-
-			if (this.hasClass(n, s.max_cls, true)) {
-				v = this.getNum(n, s.max_cls);
-
-				if (isNaN(v) || parseInt(n.value) > parseInt(v))
-					st = this.mark(f, n);
-			}
-		}
-
-		return st;
-	},
-
-	hasClass : function(n, c, d) {
-		return new RegExp('\\b' + c + (d ? '[0-9]+' : '') + '\\b', 'g').test(n.className);
-	},
-
-	getNum : function(n, c) {
-		c = n.className.match(new RegExp('\\b' + c + '([0-9]+)\\b', 'g'))[0];
-		c = c.replace(/[^0-9]/g, '');
-
-		return c;
-	},
-
-	addClass : function(n, c, b) {
-		var o = this.removeClass(n, c);
-		n.className = b ? c + (o != '' ? (' ' + o) : '') : (o != '' ? (o + ' ') : '') + c;
-	},
-
-	removeClass : function(n, c) {
-		c = n.className.replace(new RegExp("(^|\\s+)" + c + "(\\s+|$)"), ' ');
-		return n.className = c != ' ' ? c : '';
-	},
-
-	tags : function(f, s) {
-		return f.getElementsByTagName(s);
-	},
-
-	mark : function(f, n) {
-		var s = this.settings;
-
-		this.addClass(n, s.invalid_cls);
-		this.markLabels(f, n, s.invalid_cls);
-
-		return false;
-	},
-
-	markLabels : function(f, n, ic) {
-		var nl, i;
-
-		nl = this.tags(f, "label");
-		for (i=0; i<nl.length; i++) {
-			if (nl[i].getAttribute("for") == n.id || nl[i].htmlFor == n.id)
-				this.addClass(nl[i], ic);
-		}
-
-		return null;
-	}
+	return "";
 };
+
+// Global instance
+var mcTabs = new MCTabs();
