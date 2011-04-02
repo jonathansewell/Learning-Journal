@@ -9,7 +9,7 @@
 		<!-- <time datetime="2009-10-22" pubdate>October 22, 2009</time> -->
 		<time datetime="<?php the_time('Y-m-d') ?>" pubdate><?php the_time('F j, Y g:i a') ?></time>
 		
-		<?php the_content(); ?>
+		<?php //the_content(); ?>
 	</article>
 <?php endwhile; else: ?>
 	<p>Sorry, no posts matched your criteria.</p>
