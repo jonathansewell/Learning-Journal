@@ -8,8 +8,6 @@
 	</title>
 		<link  href="http://fonts.googleapis.com/css?family=Permanent+Marker:regular" rel="stylesheet" type="text/css" >
 		<link href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
-		<link href="http://fonts.googleapis.com/css?family=Candal:regular" rel="stylesheet" type="text/css" >
-		<link href="http://fonts.googleapis.com/css?family=Cabin+Sketch:bold" rel="stylesheet" type="text/css" 
 		<link  href="http://html5resetcss.googlecode.com/files/html5reset-1.6.1.css" rel="stylesheet" type="text/css" >
 		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />

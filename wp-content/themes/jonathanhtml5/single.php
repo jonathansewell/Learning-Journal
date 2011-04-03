@@ -1,3 +1,5 @@
+ <?php get_header(); ?><!-- Gets header.php -->
+ 
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 	<article>
@@ -10,7 +12,12 @@
 		<time datetime="<?php the_time('Y-m-d') ?>" pubdate><?php the_time('F j, Y g:i a') ?></time>
 		
 		<?php the_content(); ?>
+		
+		<?php comments_template( '', true ); ?>
+		
 	</article>
 <?php endwhile; else: ?>
 	<p>Sorry, no posts matched your criteria.</p>
 <?php endif; ?>
+
+<?php get_sidebar(); ?>

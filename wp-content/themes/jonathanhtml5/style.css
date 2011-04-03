@@ -105,11 +105,27 @@ article{
 		text-transform:none;
 	}
 	article pre{
+		background-color: #EAEAEA;
+		border: 1px solid #DEDEDE;
 		font-family: consolas,'courier new',monospace;
-		color:#0000AA;
+		margin: auto;
+		overflow: scroll;
+		padding: 10px;
+		width: 900px;
+	}
+	article img{
+		-moz-box-shadow:2px 2px 5px #333333;
+		-webkit-box-shadow: 2px 2px 5px #333333;
+		box-shadow:2px 2px 5px #333333;
 	}
 time{
 	display:block;
 	font-size:80%;
 	margin:0.5em 0 2em;
+}
+blockquote{
+	font-style:italic;
+}
+.gist{
+	font-size: 13px;
 }
