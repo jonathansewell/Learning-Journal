@@ -109,7 +109,7 @@ article{
 		border: 1px solid #DEDEDE;
 		font-family: consolas,'courier new',monospace;
 		margin: auto;
-		overflow: scroll;
+		overflow: auto;
 		padding: 10px;
 		width: 900px;
 	}
