@@ -2,8 +2,8 @@
 Contributors: disqus, alexkingorg, crowdfavorite
 Tags: comments, threaded, email, notification, spam, avatars, community, profile, widget, disqus
 Requires at least: 2.8
-Tested up to: 3.0
-Stable tag: 2.52
+Tested up to: 3.1.2
+Stable tag: 2.66
 
 The Disqus comment system replaces your WordPress comment system with your comments hosted and powered by Disqus.
 
@@ -61,6 +61,52 @@ the disqus directory). If the old plugin directory was 'disqus-comment-system'
 you should remove it, and the new plugin should be stored in 'disqus'.
 
 == Changes ==
+
+2.66
+
+* Fixed issue with jQuery usage which conflicted with updated jQuery version.
+
+2.65
+
+* Corrected a bug that was causing posts to not appear due to invalid references.
+
+2.64
+
+* Added an option to disable Disqus without deactivating the plugin.
+* Added a second check for comment sync to prevent stampede race conditions in WP cron.
+
+2.63
+
+* Added command line script to import comments from DISQUS (scripts/import-comments.php).
+* Added command line script to export comments to DISQUS (scripts/export-comments.php).
+* The exporter will now only do one post at a time.
+* The exporter now only sends required attributes to DISQUS.
+* Moved media into its own directory.
+
+2.62
+
+* Changed legacy query to use = operator instead of LIKE so it can be indexed.
+
+2.61
+
+* Fixed an issue which was causing invalid information to be presented in RSS feeds.
+
+2.60
+
+* Added support for new Single Sign-On (API version 3.0).
+* Improved support for legacy Single Sign-On.
+
+2.55
+
+* Added support for get_comments_number in templates.
+
+2.54
+
+* Updated URL to forum moderation.
+
+2.53
+
+* Fixed an issue with fsockopen and GET requests (only affects certain users).
 
 2.52
 

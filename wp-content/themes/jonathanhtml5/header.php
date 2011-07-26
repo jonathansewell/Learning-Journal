@@ -8,11 +8,11 @@
 	</title>
 		<link  href="http://fonts.googleapis.com/css?family=Permanent+Marker:regular" rel="stylesheet" type="text/css" >
 		<link href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+		
 		<link  href="http://html5resetcss.googlecode.com/files/html5reset-1.6.1.css" rel="stylesheet" type="text/css" >
 		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.jonathansewell.co.uk/index.php/feed/rss/" />
-		<!-- <link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">-->
 	<?php
 	// Always have wp_head() just before the closing </head>
 	// tag of your theme, or you will break many plugins, which
@@ -51,9 +51,33 @@
 	  </hgroup>
 	</header>
 
-	<?php
+	<!-- <?php
         $args = array('container' => 'nav', 'theme_location' => 'primary-menu');
         wp_nav_menu($args);
-	?>
+	?>-->
+	
+	<nav>
+		<?php
+		$mytags = get_tags() ;
+		if ($mytags) {
+		echo '<ul>';
+			$tagCount = count($mytags);
+			$columns = 5;
+			$tagsPerColumn = 1;
+			while ($tagCount > $columns){
+				$tagsPerColumn = $tagsPerColumn + 1;
+				$tagCount = $tagCount - $columns;
+			}
+
+			for ($x = 0; $x <= count($mytags); $x++) {
+				if (($x > 0) && ($x % $tagsPerColumn == 0)) echo '</ul><ul>';
+				echo '<li>';
+				echo '<a href="' . get_tag_link($mytags[$x]->term_id) . '">' . $mytags[$x]->name . '</a>';
+				echo '</li>';
+			}
+		echo '<ul>';
+		}
+		 ?>
+	</nav>
 
 	<!-- <div id="main">-->
