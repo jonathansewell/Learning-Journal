@@ -13,15 +13,8 @@
 		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.jonathansewell.co.uk/index.php/feed/rss/" />
-	<?php
-	// Always have wp_head() just before the closing </head>
-	// tag of your theme, or you will break many plugins, which
-	// generally use this hook to add elements to <head> such
-	// as styles, scripts, and meta tags.
-	?>
-	<!-- begin head hook -->
-	<?php wp_head(); ?>
-	<!-- end head hook -->
+		<script src="<?php bloginfo('template_directory')?>/js/libs/modernizr-1.7.min.js"></script>
+	
 	<!-- Google tracking -->
 	<script type="text/javascript">
 
@@ -37,6 +30,16 @@
 
 	</script>
 	<!-- End Google Tracking -->
+	
+	<?php
+	// Always have wp_head() just before the closing </head>
+	// tag of your theme, or you will break many plugins, which
+	// generally use this hook to add elements to <head> such
+	// as styles, scripts, and meta tags.
+	?>
+	<!-- begin head hook -->
+	<?php wp_head(); ?>
+	<!-- end head hook -->
 </head>
 
 <body <?php body_class(); ?>>
@@ -51,31 +54,24 @@
 	  </hgroup>
 	</header>
 
-	<!-- <?php
-        $args = array('container' => 'nav', 'theme_location' => 'primary-menu');
-        wp_nav_menu($args);
-	?>-->
+	<nav class="social">
+		<a href="http://www.linkedin.com/pub/jonathan-sewell/12/7b9/639">LinkedIn</a>
+		<a href="http://twitter.com/#!/jonathansewell">Twitter</a>
+		<a href="https://plus.google.com/u/0/108777201828386564411/posts">Google+</a>
+	</nav>
 	
-	<nav>
+	<nav class="tags">
 		<?php
 		$mytags = get_tags() ;
 		if ($mytags) {
-		echo '<ul>';
-			$tagCount = count($mytags);
-			$columns = 5;
-			$tagsPerColumn = 1;
-			while ($tagCount > $columns){
-				$tagsPerColumn = $tagsPerColumn + 1;
-				$tagCount = $tagCount - $columns;
-			}
+			echo '<ul>';
 
 			for ($x = 0; $x <= count($mytags); $x++) {
-				if (($x > 0) && ($x % $tagsPerColumn == 0)) echo '</ul><ul>';
 				echo '<li>';
 				echo '<a href="' . get_tag_link($mytags[$x]->term_id) . '">' . $mytags[$x]->name . '</a>';
 				echo '</li>';
 			}
-		echo '<ul>';
+			echo '</ul>';
 		}
 		 ?>
 	</nav>

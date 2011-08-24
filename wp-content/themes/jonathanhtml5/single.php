@@ -10,6 +10,7 @@
 		</h1>
 		<!-- <time datetime="2009-10-22" pubdate>October 22, 2009</time> -->
 		<time datetime="<?php the_time('Y-m-d') ?>" pubdate><?php the_time('F j, Y g:i a') ?></time>
+		<?php the_tags('<nav class=loop-tag>', '', '</nav>'); ?>
 		
 		<?php the_content(); ?>
 		

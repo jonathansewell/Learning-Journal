@@ -93,29 +93,60 @@ body.tag header{
 		font-size:24px;
 		text-align:left;
 	}
+nav.social{
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0;
+	font-size: 12px;
+}
+	nav.social a{
+		color: white;
+		background-color: #BBB;
+		float: right;
+		padding: 2px 4px;
+		margin: 4px;
+		border-radius: 2px;
+	}
+	nav.social a:link:hover, 
+	nav.social a:visited:hover{
+		color: white;
+	}
+time{
+	font-size: 80%;
+	margin: 0 6px 0 0;
+}
 nav{
 	float: left;
 	margin: 10px 0 0;
 	width: 100%;
 }
-h1#tags-heading{
-	font-size:100%;
-}
-body.single  nav,
-body.tag  nav{
-	display:none;
-}
-	nav ul{
-		float:left;
-		width:120px;
-		padding:0;margin:0;
+	nav.loop-tag{
+		float:none;
+		margin: 0;
+		display:inline;
 	}
-		nav ul li{
+		nav.loop-tag a{
+			font-size: 70%;
+			margin: 0 4px 0 0;
+			color: white;
+			background-color: #BBB;
+			padding: 0px 4px;
+			border-radius: 2px;
+		}
+	nav.tags ul{
+		float:left;
+		padding:0;margin:0;
+		width:inherit;
+	}
+		nav.tags ul li{
 			list-style-type:none;
-			margin:-5px 0 0 0;
+			margin:5px;
+			display:inline;
+			float:left;
 		}
 			nav ul li a{
-				width:120px;
 				text-transform:lowercase;
 			}
 			nav ul li a,
@@ -125,6 +156,13 @@ body.tag  nav{
 			nav ul li a:visited:hover {
 				text-decoration:underline;
 			}
+h1#tags-heading{
+	font-size:100%;
+}
+body.single  nav.tags,
+body.tag  nav.tags{
+	display:none;
+}
 nav ul#menu-primary-menu{
 	margin: 0;
     padding: 0;
@@ -160,11 +198,6 @@ article{
 		-webkit-box-shadow: 2px 2px 5px #333333;
 		box-shadow:2px 2px 5px #333333;
 	}
-time{
-	display:block;
-	font-size:80%;
-	margin:0.5em 0 2em;
-}
 blockquote{
 	font-style:italic;
 }
